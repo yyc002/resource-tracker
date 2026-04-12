@@ -27,11 +27,14 @@ function Badge({ role }: { role: string }) {
 function PersonNode({ person }: { person: Person }) {
   return (
     <div
-      className={`bg-slate-800 border-2 ${nodeBoxClass[person.role] ?? 'border-slate-600'} rounded-lg px-3 py-2 flex flex-row items-center gap-2 flex-none`}
+      className={`relative group bg-slate-800 border-2 ${nodeBoxClass[person.role] ?? 'border-slate-600'} rounded-lg px-3 py-2 flex flex-row items-center gap-2 flex-none`}
     >
       <Badge role={person.role} />
       <span className="text-white font-semibold text-sm">{person.name}</span>
-      <span className="text-slate-500 text-xs">{person.experience}</span>
+      {/* 경력 툴팁 — 호버 시에만 표시 */}
+      <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 whitespace-nowrap rounded bg-slate-700 px-2 py-1 text-xs text-slate-200 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+        {person.experience}
+      </span>
     </div>
   )
 }
