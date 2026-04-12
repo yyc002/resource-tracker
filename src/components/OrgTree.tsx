@@ -72,7 +72,7 @@ function ServiceRow({
   isLast: boolean
 }) {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center py-3">
       {/* 분기 커넥터 */}
       <BranchLine isFirst={isFirst} isLast={isLast} />
 
@@ -120,8 +120,8 @@ export default function OrgTree({ data }: OrgTreeProps) {
           <PersonNode person={data.pl} />
           <HorizConnector />
 
-          {/* 서비스 분기 열 */}
-          <div className="flex flex-col gap-4">
+          {/* 서비스 분기 열 — gap 제거해야 BranchLine 수직선이 끊기지 않음 */}
+          <div className="flex flex-col">
             {data.services.map((svc, i) => (
               <ServiceRow
                 key={svc.serviceName}
