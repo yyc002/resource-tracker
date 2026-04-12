@@ -33,7 +33,7 @@ function PersonNode({ person }: { person: Person }) {
       <span className="text-white font-semibold text-sm">{person.name}</span>
       {/* 경력 툴팁 — 호버 시에만 표시 */}
       <span className="pointer-events-none absolute bottom-full right-0 mb-1.5 whitespace-nowrap rounded bg-slate-700 px-2 py-1 text-xs text-slate-200 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-        경력 {person.experience}
+        경력:{person.experience}
       </span>
     </div>
   )
