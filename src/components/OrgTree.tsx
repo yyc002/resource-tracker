@@ -27,7 +27,7 @@ function Badge({ role }: { role: string }) {
 function PersonNode({ person }: { person: Person }) {
   return (
     <div
-      className={`bg-slate-800 border-2 ${nodeBoxClass[person.role] ?? 'border-slate-600'} rounded-lg px-4 py-2 flex flex-col items-center gap-1 min-w-[90px] flex-none`}
+      className={`bg-slate-800 border-2 ${nodeBoxClass[person.role] ?? 'border-slate-600'} rounded-lg px-3 py-2 flex flex-row items-center gap-2 flex-none`}
     >
       <Badge role={person.role} />
       <span className="text-white font-semibold text-sm">{person.name}</span>
@@ -74,8 +74,8 @@ function ServiceRow({
       <BranchLine isFirst={isFirst} isLast={isLast} />
 
       {/* 서비스 노드 */}
-      <div className="bg-slate-800 border-2 border-indigo-500 rounded-lg px-4 py-2 text-center min-w-[140px] flex-none">
-        <span className="text-xs px-1.5 py-0.5 rounded bg-indigo-900 text-indigo-300 border border-indigo-600 font-mono block mb-1">
+      <div className="bg-slate-800 border-2 border-indigo-500 rounded-lg px-3 py-2 flex flex-row items-center gap-2 flex-none">
+        <span className="text-xs px-1.5 py-0.5 rounded bg-indigo-900 text-indigo-300 border border-indigo-600 font-mono">
           SERVICE
         </span>
         <p className="text-white font-semibold text-sm">{service.serviceName}</p>
