@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FEB_AGGREGATED } from '../data/feb2026'
 import type { AggregatedDay } from '../types/work'
 
-const DAY_LABELS = ['일', '월', '화', '수', '목', '금', '토']
+const DAY_LABELS = ['월', '화', '수', '목', '금']
 
 // 날짜 → 집계 데이터 빠른 조회
 const dataByDate = new Map<string, AggregatedDay>(
@@ -23,13 +23,6 @@ function EmptyPad() {
   return <div className="min-h-[80px]" />
 }
 
-function WeekendCell({ day }: { day: number }) {
-  return (
-    <div className="min-h-[80px] rounded-lg bg-slate-900/50 p-2">
-      <span className="text-xs text-slate-600">{day}</span>
-    </div>
-  )
-}
 
 function HolidayCell({ day, label }: { day: number; label?: string }) {
   return (
@@ -79,18 +72,23 @@ function WorkCell({ day, data }: { day: number; data: AggregatedDay }) {
 
 // ── 캘린더 생성 ──────────────────────────────────────
 
+// 토·일 제외, 월~금 5열 캘린더 생성
 function buildCalendar(year: number, month: number): (number | null)[][] {
-  const firstDow = new Date(year, month - 1, 1).getDay() // 0=일
+  const firstDow = new Date(year, month - 1, 1).getDay() // 0=일..6=토
   const daysInMonth = new Date(year, month, 0).getDate()
 
-  const cells: (number | null)[] = [
-    ...Array<null>(firstDow).fill(null),
-    ...Array.from({ length: daysInMonth }, (_, i) => i + 1),
-  ]
-  while (cells.length % 7 !== 0) cells.push(null)
+  // 첫날이 화~금이면 앞에 null 패딩 (월 컬럼부터 시작하도록)
+  const pad = firstDow >= 2 && firstDow <= 5 ? firstDow - 1 : 0
+  const cells: (number | null)[] = Array<null>(pad).fill(null)
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dow = new Date(year, month - 1, d).getDay()
+    if (dow >= 1 && dow <= 5) cells.push(d) // 월~금만 추가
+  }
+  while (cells.length % 5 !== 0) cells.push(null)
 
   const weeks: (number | null)[][] = []
-  for (let i = 0; i < cells.length; i += 7) weeks.push(cells.slice(i, i + 7))
+  for (let i = 0; i < cells.length; i += 5) weeks.push(cells.slice(i, i + 5))
   return weeks
 }
 
@@ -115,9 +113,7 @@ export default function MonthlyWorkSection() {
     <section>
       {/* 헤더 */}
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-semibold text-slate-300">
-          월별 업무현황 ({month}월)
-        </h2>
+        <h2 className="text-2xl font-semibold text-slate-300">월별 업무현황</h2>
         <div className="flex items-center gap-3">
           <button
             onClick={prevMonth}
@@ -138,14 +134,9 @@ export default function MonthlyWorkSection() {
       {/* 캘린더 */}
       <div className="bg-slate-900 border border-slate-700 rounded-lg p-4">
         {/* 요일 헤더 */}
-        <div className="grid grid-cols-7 gap-1.5 mb-1.5">
-          {DAY_LABELS.map((d, i) => (
-            <div
-              key={d}
-              className={`text-center text-xs font-semibold py-1 ${
-                i === 0 ? 'text-red-400' : i === 6 ? 'text-blue-400' : 'text-slate-500'
-              }`}
-            >
+        <div className="grid grid-cols-5 gap-1.5 mb-1.5">
+          {DAY_LABELS.map((d) => (
+            <div key={d} className="text-center text-xs font-semibold py-1 text-slate-500">
               {d}
             </div>
           ))}
@@ -154,12 +145,9 @@ export default function MonthlyWorkSection() {
         {/* 주별 행 */}
         <div className="space-y-1.5">
           {weeks.map((week, wi) => (
-            <div key={wi} className="grid grid-cols-7 gap-1.5">
+            <div key={wi} className="grid grid-cols-5 gap-1.5">
               {week.map((day, di) => {
                 if (day === null) return <EmptyPad key={di} />
-
-                const isWeekend = di === 0 || di === 6
-                if (isWeekend) return <WeekendCell key={di} day={day} />
 
                 const dateStr = toDateStr(year, month, day)
                 const data = dataByDate.get(dateStr)
