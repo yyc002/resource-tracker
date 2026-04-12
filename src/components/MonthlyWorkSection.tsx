@@ -52,7 +52,7 @@ function WorkCell({ day, data }: { day: number; data: AggregatedDay }) {
           {mg.services.map((sw) => (
             <div key={`${sw.service}-${sw.task}`} className="flex items-baseline gap-1 pl-1.5">
               <span className="text-slate-400 truncate flex-1">
-                {sw.service} / {sw.task}
+                {sw.service} &gt; {sw.task}
               </span>
               <span className="font-mono text-emerald-400 flex-none">{formatMd(sw.md)}</span>
             </div>
