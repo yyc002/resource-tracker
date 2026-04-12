@@ -5,15 +5,15 @@ interface OrgTreeProps {
 }
 
 const roleBadgeClass: Record<string, string> = {
-  PL: 'bg-blue-900 text-blue-300 border border-blue-600',
-  TL: 'bg-green-900 text-green-300 border border-green-600',
-  TE: 'bg-amber-900 text-amber-300 border border-amber-600',
+  PL: 'bg-green-950 text-green-200 border border-green-700',   // 진초록
+  TL: 'bg-green-800 text-green-300 border border-green-500',   // 초록
+  TE: 'bg-lime-900  text-lime-300  border border-lime-500',    // 연두
 }
 
 const nodeBoxClass: Record<string, string> = {
-  PL: 'border-blue-500',
-  TL: 'border-green-500',
-  TE: 'border-amber-500',
+  PL: 'border-green-700',  // 진초록
+  TL: 'border-green-500',  // 초록
+  TE: 'border-lime-400',   // 연두
 }
 
 function Badge({ role }: { role: string }) {
@@ -77,8 +77,8 @@ function ServiceRow({
       <BranchLine isFirst={isFirst} isLast={isLast} />
 
       {/* 서비스 노드 */}
-      <div className="bg-slate-800 border-2 border-indigo-500 rounded-lg px-3 py-2 flex flex-row items-center gap-2 flex-none">
-        <span className="text-xs px-1.5 py-0.5 rounded bg-indigo-900 text-indigo-300 border border-indigo-600 font-mono">
+      <div className="bg-slate-800 border-2 border-pink-500 rounded-lg px-3 py-2 flex flex-row items-center gap-2 flex-none">
+        <span className="text-xs px-1.5 py-0.5 rounded bg-pink-950 text-pink-300 border border-pink-600 font-mono">
           SERVICE
         </span>
         <p className="text-white font-semibold text-sm">{service.serviceName}</p>
@@ -141,12 +141,12 @@ export default function OrgTree({ data }: OrgTreeProps) {
               <div
                 className={`w-3 h-3 rounded border-2 ${
                   r === 'PL'
-                    ? 'border-blue-500'
+                    ? 'border-green-700'
                     : r === 'SERVICE'
-                    ? 'border-indigo-500'
+                    ? 'border-pink-500'
                     : r === 'TL'
                     ? 'border-green-500'
-                    : 'border-amber-500'
+                    : 'border-lime-400'
                 }`}
               />
               {r}
