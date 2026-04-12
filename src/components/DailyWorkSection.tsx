@@ -31,13 +31,13 @@ export default function DailyWorkSection() {
               key={label}
               className="bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 flex items-center gap-4"
             >
-              <span className="text-4xl leading-none">{emoji}</span>
-              <div>
+              <div className="flex-1">
                 <p className="text-xs font-bold text-slate-400 mb-1">{label}</p>
                 <p className="text-2xl font-bold text-sky-400">
                   {value}<span className="text-sm font-normal text-slate-400 ml-1">개</span>
                 </p>
               </div>
+              <span className="text-4xl leading-none">{emoji}</span>
             </div>
           ))}
         </div>
