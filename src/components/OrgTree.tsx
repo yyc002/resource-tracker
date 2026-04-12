@@ -51,7 +51,7 @@ function HorizConnector() {
  */
 function BranchLine({ isFirst, isLast }: { isFirst: boolean; isLast: boolean }) {
   return (
-    <div className="flex-none w-6 self-stretch flex flex-col">
+    <div className="flex-none w-6 self-stretch -my-3 flex flex-col">
       {/* 상단 절반: 첫 번째 행이 아니면 왼쪽 수직선, 하단 경계에 수평선 */}
       <div
         className={`flex-1 border-b border-slate-600 ${!isFirst ? 'border-l border-slate-600' : ''}`}
