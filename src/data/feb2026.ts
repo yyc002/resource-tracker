@@ -165,15 +165,13 @@ const RAW: PersonRaw[] = [
   ]},
 ]
 
-const OFF_LABELS = new Set(['', '휴무', '설날'])
+const SKIP_LABELS = new Set(['', '설날'])       // 전체 공휴일·빈칸은 집계 제외
 const HOLIDAY_LABELS = new Set(['설날'])
+const OFF_FULL = new Set(['휴무'])               // 1MD
+const OFF_HALF = new Set(['오후 반차', '오전 반차', '오전반차', '오후반차']) // 0.5MD
 
 function isVersion(m: string): boolean {
   return /^\d+\.\d+/.test(m)
-}
-
-function isHalfDay(m: string): boolean {
-  return m === '오후 반차'
 }
 
 export function aggregateDay(dateIndex: number): AggregatedDay {
@@ -183,32 +181,35 @@ export function aggregateDay(dateIndex: number): AggregatedDay {
   const allLabels = RAW.map(p => p.entries[dateIndex][0])
   const isHoliday = allLabels.every(m => HOLIDAY_LABELS.has(m) || m === '')
   if (isHoliday) {
-    return { date, milestones: [], standalone: [], isHoliday: true, holidayLabel: '설날' }
+    return { date, milestones: [], standalone: [], offMd: 0, isHoliday: true, holidayLabel: '설날' }
   }
 
   // milestone → service → task → md 집계
   const milestoneMap = new Map<string, Map<string, Map<string, number>>>()
   const standaloneMap = new Map<string, number>()
+  let offMd = 0
 
   for (const person of RAW) {
     const [milestone, service, task] = person.entries[dateIndex]
-    if (OFF_LABELS.has(milestone)) continue
+    if (SKIP_LABELS.has(milestone)) continue
 
-    const md = isHalfDay(milestone) ? 0.5 : 1
+    // OFF 집계
+    if (OFF_FULL.has(milestone)) { offMd += 1; continue }
+    if (OFF_HALF.has(milestone)) { offMd += 0.5; continue }
 
     if (isVersion(milestone)) {
       if (!milestoneMap.has(milestone)) milestoneMap.set(milestone, new Map())
       const svcMap = milestoneMap.get(milestone)!
       if (!svcMap.has(service)) svcMap.set(service, new Map())
       const taskMap = svcMap.get(service)!
-      taskMap.set(task, (taskMap.get(task) ?? 0) + md)
+      taskMap.set(task, (taskMap.get(task) ?? 0) + 1)
     } else {
       // 필드 테스트: 장소 포함
       let label = milestone
       if (milestone === '필드 테스트' && service.trim()) {
         label = `필드 테스트 (${service.trim()})`
       }
-      standaloneMap.set(label, (standaloneMap.get(label) ?? 0) + md)
+      standaloneMap.set(label, (standaloneMap.get(label) ?? 0) + 1)
     }
   }
 
@@ -228,7 +229,7 @@ export function aggregateDay(dateIndex: number): AggregatedDay {
     standalone.push({ label, md })
   }
 
-  return { date, milestones, standalone, isHoliday: false }
+  return { date, milestones, standalone, offMd, isHoliday: false }
 }
 
 export const FEB_AGGREGATED: AggregatedDay[] = FEB_DATES.map((_, i) => aggregateDay(i))

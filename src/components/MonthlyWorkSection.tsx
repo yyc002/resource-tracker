@@ -66,6 +66,14 @@ function WorkCell({ day, data }: { day: number; data: AggregatedDay }) {
           <span className="font-mono text-emerald-400 flex-none">{formatMd(s.md)}</span>
         </div>
       ))}
+
+      {/* OFF (휴무/반차) */}
+      {data.offMd > 0 && (
+        <div className="flex items-baseline gap-1 pt-0.5 border-t border-slate-700">
+          <span className="text-slate-400 flex-1">OFF</span>
+          <span className="font-mono text-rose-400 flex-none">{formatMd(data.offMd)}</span>
+        </div>
+      )}
     </div>
   )
 }

@@ -18,6 +18,7 @@ export interface AggregatedDay {
   date: string
   milestones: MilestoneGroup[]
   standalone: StandaloneWork[]
+  offMd: number           // 휴무(1) + 반차(0.5) 합계
   isHoliday: boolean
   holidayLabel?: string
 }
