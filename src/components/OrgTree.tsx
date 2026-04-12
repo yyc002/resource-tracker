@@ -118,7 +118,7 @@ export default function OrgTree({ data }: OrgTreeProps) {
           <HorizConnector />
 
           {/* 서비스 분기 열 */}
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-4">
             {data.services.map((svc, i) => (
               <ServiceRow
                 key={svc.serviceName}
