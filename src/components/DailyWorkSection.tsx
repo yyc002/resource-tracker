@@ -11,7 +11,7 @@ function formatKoreanDate(date: Date): string {
 }
 
 const METRICS = [
-  { emoji: '✍️', label: 'TC 작성 수',      value: dailyStats.tcWritten },
+  { emoji: '✍🏻', label: 'TC 작성 수',      value: dailyStats.tcWritten },
   { emoji: '▶️', label: 'TC 수행 수',      value: dailyStats.tcExecuted },
   { emoji: '🐛', label: '이슈등록 수',     value: dailyStats.issuesRegistered },
   { emoji: '🔧', label: '잔여 이슈처리 수', value: dailyStats.issuesResolved },
