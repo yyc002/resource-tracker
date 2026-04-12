@@ -10,12 +10,13 @@ export default function CalendarSection() {
       <h2 className="text-2xl font-semibold text-slate-300 mb-3">
         일정
       </h2>
-      <div className="bg-slate-800 border border-slate-700 rounded-lg overflow-hidden">
-        {/* 화면 표시 */}
+      {/* 컨테이너 높이를 고정하고 overflow-hidden으로 하단 캘린더 목록 잘라냄 */}
+      <div className="bg-slate-800 border border-slate-700 rounded-lg overflow-hidden" style={{ height: 600 }}>
+        {/* 화면 표시 — iframe을 더 크게 해서 하단 범례가 잘려나가도록 */}
         <iframe
           src={CALENDAR_SRC}
           className="w-full print-hidden"
-          style={{ height: 600, border: 0, filter: 'invert(1) hue-rotate(180deg) contrast(0.85)' }}
+          style={{ height: 650, border: 0, filter: 'invert(1) hue-rotate(180deg) contrast(0.85)' }}
           title="팀 캘린더"
         />
         {/* 인쇄 시 대체 문구 */}
