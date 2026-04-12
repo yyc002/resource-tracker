@@ -11,10 +11,10 @@ function formatKoreanDate(date: Date): string {
 }
 
 const METRICS = [
-  { label: 'TC 작성 수',      value: dailyStats.tcWritten },
-  { label: 'TC 수행 수',      value: dailyStats.tcExecuted },
-  { label: '이슈등록 수',     value: dailyStats.issuesRegistered },
-  { label: '잔여 이슈처리 수', value: dailyStats.issuesResolved },
+  { emoji: '✍️', label: 'TC 작성 수',      value: dailyStats.tcWritten },
+  { emoji: '▶️', label: 'TC 수행 수',      value: dailyStats.tcExecuted },
+  { emoji: '🐛', label: '이슈등록 수',     value: dailyStats.issuesRegistered },
+  { emoji: '🔧', label: '잔여 이슈처리 수', value: dailyStats.issuesResolved },
 ]
 
 export default function DailyWorkSection() {
@@ -26,12 +26,12 @@ export default function DailyWorkSection() {
       <div className="bg-slate-800 border border-slate-700 rounded-lg p-5">
         <p className="text-base font-semibold text-slate-200 mb-4">{today}</p>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {METRICS.map(({ label, value }) => (
+          {METRICS.map(({ emoji, label, value }) => (
             <div
               key={label}
               className="bg-slate-900 border border-slate-700 rounded-lg px-4 py-3"
             >
-              <p className="text-xs text-slate-500 mb-1">{label}</p>
+              <p className="text-xs font-bold text-slate-400 mb-1">{emoji} {label}</p>
               <p className="text-2xl font-bold text-sky-400">
                 {value}<span className="text-sm font-normal text-slate-400 ml-1">개</span>
               </p>
