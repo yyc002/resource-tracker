@@ -15,7 +15,7 @@ export default function CalendarSection() {
         <iframe
           src={CALENDAR_SRC}
           className="w-full print-hidden"
-          style={{ height: 600, border: 0, filter: 'invert(1) hue-rotate(180deg)' }}
+          style={{ height: 600, border: 0, filter: 'invert(1) hue-rotate(180deg) contrast(0.85)' }}
           title="팀 캘린더"
         />
         {/* 인쇄 시 대체 문구 */}
