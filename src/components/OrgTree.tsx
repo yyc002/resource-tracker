@@ -107,7 +107,7 @@ function ServiceRow({
 export default function OrgTree({ data }: OrgTreeProps) {
   return (
     <section>
-      <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">
+      <h2 className="text-2xl font-semibold text-slate-300 mb-4">
         인력 구성
       </h2>
       <div className="bg-slate-900 border border-slate-700 rounded-lg p-6 overflow-x-auto">

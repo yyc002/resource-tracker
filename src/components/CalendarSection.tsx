@@ -7,7 +7,7 @@ const CALENDAR_SRC =
 export default function CalendarSection() {
   return (
     <section>
-      <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-3">
+      <h2 className="text-2xl font-semibold text-slate-300 mb-3">
         일정
       </h2>
       <div className="bg-slate-800 border border-slate-700 rounded-lg overflow-hidden">
