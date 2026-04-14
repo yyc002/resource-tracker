@@ -1,6 +1,6 @@
-import type { AggregatedDay, MilestoneGroup, ServiceWork, StandaloneWork } from '../types/work'
+import { aggregateDays } from '../utils/workAggregator'
+import type { PersonRaw } from '../utils/workAggregator'
 
-// 2월 영업일 20일
 export const FEB_DATES = [
   '2026-02-02', '2026-02-03', '2026-02-04', '2026-02-05', '2026-02-06',
   '2026-02-09', '2026-02-10', '2026-02-11', '2026-02-12', '2026-02-13',
@@ -8,16 +8,7 @@ export const FEB_DATES = [
   '2026-02-23', '2026-02-24', '2026-02-25', '2026-02-26', '2026-02-27',
 ]
 
-// [milestone, service, task] — 인덱스는 FEB_DATES와 동일
-type E = [string, string, string]
-
-interface PersonRaw {
-  name: string
-  entries: E[]
-}
-
-// PL(이상필)은 매니징 업무로 월별 업무현황에서 제외
-
+// PL(이상필)은 매니징 업무로 제외
 const RAW: PersonRaw[] = [
   { name: '이성형', entries: [
     ['4.9.5', 'Rider', 'TC 진행'],        ['필드 테스트', '', ''],
@@ -165,71 +156,4 @@ const RAW: PersonRaw[] = [
   ]},
 ]
 
-const SKIP_LABELS = new Set(['', '설날'])       // 전체 공휴일·빈칸은 집계 제외
-const HOLIDAY_LABELS = new Set(['설날'])
-const OFF_FULL = new Set(['휴무'])               // 1MD
-const OFF_HALF = new Set(['오후 반차', '오전 반차', '오전반차', '오후반차']) // 0.5MD
-
-function isVersion(m: string): boolean {
-  return /^\d+\.\d+/.test(m)
-}
-
-export function aggregateDay(dateIndex: number): AggregatedDay {
-  const date = FEB_DATES[dateIndex]
-
-  // 모든 사람이 쉬는 날(설날) 감지
-  const allLabels = RAW.map(p => p.entries[dateIndex][0])
-  const isHoliday = allLabels.every(m => HOLIDAY_LABELS.has(m) || m === '')
-  if (isHoliday) {
-    return { date, milestones: [], standalone: [], offMd: 0, isHoliday: true, holidayLabel: '설날' }
-  }
-
-  // milestone → service → task → md 집계
-  const milestoneMap = new Map<string, Map<string, Map<string, number>>>()
-  const standaloneMap = new Map<string, number>()
-  let offMd = 0
-
-  for (const person of RAW) {
-    const [milestone, service, task] = person.entries[dateIndex]
-    if (SKIP_LABELS.has(milestone)) continue
-
-    // OFF 집계
-    if (OFF_FULL.has(milestone)) { offMd += 1; continue }
-    if (OFF_HALF.has(milestone)) { offMd += 0.5; continue }
-
-    if (isVersion(milestone)) {
-      if (!milestoneMap.has(milestone)) milestoneMap.set(milestone, new Map())
-      const svcMap = milestoneMap.get(milestone)!
-      if (!svcMap.has(service)) svcMap.set(service, new Map())
-      const taskMap = svcMap.get(service)!
-      taskMap.set(task, (taskMap.get(task) ?? 0) + 1)
-    } else {
-      // 필드 테스트: 장소 포함
-      let label = milestone
-      if (milestone === '필드 테스트' && service.trim()) {
-        label = `필드 테스트 (${service.trim()})`
-      }
-      standaloneMap.set(label, (standaloneMap.get(label) ?? 0) + 1)
-    }
-  }
-
-  const milestones: MilestoneGroup[] = []
-  for (const [milestone, svcMap] of milestoneMap) {
-    const services: ServiceWork[] = []
-    for (const [svc, taskMap] of svcMap) {
-      for (const [tsk, md] of taskMap) {
-        services.push({ service: svc, task: tsk, md })
-      }
-    }
-    milestones.push({ milestone, services })
-  }
-
-  const standalone: StandaloneWork[] = []
-  for (const [label, md] of standaloneMap) {
-    standalone.push({ label, md })
-  }
-
-  return { date, milestones, standalone, offMd, isHoliday: false }
-}
-
-export const FEB_AGGREGATED: AggregatedDay[] = FEB_DATES.map((_, i) => aggregateDay(i))
+export const FEB_AGGREGATED = aggregateDays(FEB_DATES, RAW)

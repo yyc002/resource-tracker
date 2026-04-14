@@ -1,13 +1,12 @@
 import { useState } from 'react'
-import { FEB_AGGREGATED } from '../data/feb2026'
+import { ALL_DATA_BY_DATE, WORK_MONTHS } from '../data/workIndex'
 import type { AggregatedDay } from '../types/work'
 
 const DAY_LABELS = ['월', '화', '수', '목', '금']
 
-// 날짜 → 집계 데이터 빠른 조회
-const dataByDate = new Map<string, AggregatedDay>(
-  FEB_AGGREGATED.map((d) => [d.date, d])
-)
+// 데이터 있는 첫 번째 달로 초기화
+const INITIAL_YEAR = WORK_MONTHS[WORK_MONTHS.length - 1].year
+const INITIAL_MONTH = WORK_MONTHS[WORK_MONTHS.length - 1].month
 
 function toDateStr(year: number, month: number, day: number): string {
   return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`
@@ -103,8 +102,8 @@ function buildCalendar(year: number, month: number): (number | null)[][] {
 // ── 메인 컴포넌트 ────────────────────────────────────
 
 export default function MonthlyWorkSection() {
-  const [year, setYear] = useState(2026)
-  const [month, setMonth] = useState(2)
+  const [year, setYear] = useState(INITIAL_YEAR)
+  const [month, setMonth] = useState(INITIAL_MONTH)
 
   const weeks = buildCalendar(year, month)
 
@@ -158,7 +157,7 @@ export default function MonthlyWorkSection() {
                 if (day === null) return <EmptyPad key={di} />
 
                 const dateStr = toDateStr(year, month, day)
-                const data = dataByDate.get(dateStr)
+                const data = ALL_DATA_BY_DATE.get(dateStr)
 
                 if (!data) return <NoDataCell key={di} day={day} />
                 if (data.isHoliday) return <HolidayCell key={di} day={day} label={data.holidayLabel} />
