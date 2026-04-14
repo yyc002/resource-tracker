@@ -19,7 +19,8 @@ function isVersion(m: string): boolean {
 export function aggregateDays(dates: string[], raw: PersonRaw[]): AggregatedDay[] {
   return dates.map((date, i) => {
     const allLabels = raw.map(p => p.entries[i][0])
-    const isHoliday = allLabels.every(m => HOLIDAY_LABELS.has(m) || m === '')
+    // 실제 '설날' 텍스트가 하나라도 있어야 공휴일로 처리 (빈값만 있는 미입력 날짜 제외)
+    const isHoliday = allLabels.some(m => HOLIDAY_LABELS.has(m))
     if (isHoliday) {
       return { date, milestones: [], standalone: [], offMd: 0, isHoliday: true, holidayLabel: '설날' }
     }
