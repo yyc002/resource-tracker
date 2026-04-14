@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts'
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
 import { milestoneContributions } from '../data/milestoneContributions'
 import type { PersonContribution } from '../data/milestoneContributions'
 
@@ -75,10 +75,7 @@ function ProductChart({ product, people }: ProductChartProps) {
                   <Cell key={i} fill={getColor(i)} />
                 ))}
               </Pie>
-              <Tooltip
-                content={<CustomTooltip />}
-                formatter={(v: number) => [`${v}건`]}
-              />
+              <Tooltip content={<CustomTooltip />} />
             </PieChart>
           </ResponsiveContainer>
         </div>
