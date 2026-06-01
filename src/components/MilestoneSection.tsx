@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
 import { milestoneContributions } from '../data/milestoneContributions'
 import type { PersonContribution } from '../data/milestoneContributions'
 
-const MILESTONES = ['4.9', '4.9.5', '4.10'] as const
+const MILESTONES = ['4.9', '4.9.5', '4.10', '4.11'] as const
 type Milestone = typeof MILESTONES[number]
 
 // 인원별 고정 색상 팔레트
