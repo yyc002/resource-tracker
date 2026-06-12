@@ -90,7 +90,7 @@ function ProductChart({
 
 // ── 메인 컴포넌트 ─────────────────────────────────────
 export default function MilestoneSection() {
-  const [selected, setSelected] = useState<Milestone>('4.10')
+  const [selected, setSelected] = useState<Milestone>('4.11')
   const products = milestoneContributions[selected]
 
   // 현재 마일스톤에 등장하는 모든 인원 → 일관된 색상 매핑
