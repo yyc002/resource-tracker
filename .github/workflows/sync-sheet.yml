@@ -1,0 +1,34 @@
+name: Sync Sheet Data
+
+on:
+  schedule:
+    - cron: '0 0 * * 1-5'  # 평일 매일 오전 9시 KST (= 0시 UTC)
+  workflow_dispatch:         # GitHub Actions 페이지에서 수동 실행도 가능
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 시트 데이터 동기화
+        run: node scripts/sync-sheet.mjs
+
+      - name: 변경사항 커밋 & 푸시
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/
+          if git diff --staged --quiet; then
+            echo "변경사항 없음 — 배포 건너뜀"
+          else
+            git commit -m "chore: 시트 데이터 자동 동기화 $(date +'%Y-%m-%d')"
+            git push
+          fi

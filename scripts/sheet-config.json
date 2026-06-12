@@ -1,0 +1,12 @@
+{
+  "sheetId": "10-QBEcWaHLF7xLaIzqUqtktH_XCYW164Gaa-AiAEhzo",
+  "months": {
+    "2026-06": {
+      "gid": "1742083396",
+      "dataFile": "src/data/jun2026.ts",
+      "exportName": "JUN_AGGREGATED",
+      "datesVar": "JUN_DATES",
+      "note": "6/3 공직선거일(지방선거) 공휴일 제외"
+    }
+  }
+}
