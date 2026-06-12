@@ -10,7 +10,6 @@ export const orgData: OrgData = {
       tl: { name: '조정호', role: 'TL', experience: '5년' },
       tes: [
         { name: '손윤수', role: 'TE', experience: '3년' },
-        { name: '정우원', role: 'TE', experience: '2년' },
       ],
     },
     {
