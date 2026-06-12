@@ -26,9 +26,8 @@ export const orgData: OrgData = {
     },
     {
       serviceName: 'Driver / Vehicle / Taxi / Kiosk',
-      tl: null,
+      tl: { name: '이경근', role: 'TL', experience: '6년' },
       tes: [
-        { name: '이경근', role: 'TE', experience: '6년' },
         { name: '이윤석', role: 'TE', experience: '4년' },
         { name: '심명섭', role: 'TE', experience: '8년' },
       ],
