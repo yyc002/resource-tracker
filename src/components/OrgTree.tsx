@@ -110,9 +110,18 @@ function ServiceRow({
 export default function OrgTree({ data }: OrgTreeProps) {
   return (
     <section>
-      <h2 className="text-2xl font-semibold text-slate-300 mb-4">
-        인력 구성
-      </h2>
+      <div className="flex items-center gap-2 mb-4">
+        <h2 className="text-2xl font-semibold text-slate-300">인력 구성</h2>
+        <div className="relative group">
+          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-slate-600 text-slate-300 text-xs cursor-default select-none">i</span>
+          <div className="absolute left-1/2 -translate-x-1/2 top-7 z-10 hidden group-hover:block w-72 bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-xs text-slate-300 shadow-lg leading-relaxed">
+            <p className="font-semibold text-slate-100 mb-1">인력 구성</p>
+            <p>협력업체 인력의 조직 구성 표시</p>
+            <p>PL › 서비스 › TL › TE 계층 구조</p>
+            <p>인원 노드 호버 시 경력 확인 가능</p>
+          </div>
+        </div>
+      </div>
       <div className="bg-slate-900 border border-slate-700 rounded-lg p-6 overflow-x-auto">
         <div className="inline-flex items-center min-w-max">
 

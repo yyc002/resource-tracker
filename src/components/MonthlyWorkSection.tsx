@@ -120,7 +120,17 @@ export default function MonthlyWorkSection() {
     <section>
       {/* 헤더 */}
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-semibold text-slate-300">월별 업무현황</h2>
+        <div className="flex items-center gap-2">
+          <h2 className="text-2xl font-semibold text-slate-300">월별 업무현황</h2>
+          <div className="relative group">
+            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-slate-600 text-slate-300 text-xs cursor-default select-none">i</span>
+            <div className="absolute left-1/2 -translate-x-1/2 top-7 z-10 hidden group-hover:block w-72 bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-xs text-slate-300 shadow-lg leading-relaxed">
+              <p className="font-semibold text-slate-100 mb-1">월별 업무현황</p>
+              <p>일별 업무 투입 현황을 캘린더 형태로 표시</p>
+              <p>마일스톤·서비스별 투입 공수(MD) 및 휴무 포함</p>
+            </div>
+          </div>
+        </div>
         <div className="flex items-center gap-3">
           <button
             onClick={prevMonth}
