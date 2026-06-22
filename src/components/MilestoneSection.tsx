@@ -128,7 +128,17 @@ export default function MilestoneSection() {
     <section>
       {/* 헤더 */}
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-semibold text-slate-300">마일스톤 별 기여도</h2>
+        <div className="flex items-center gap-2">
+          <h2 className="text-2xl font-semibold text-slate-300">마일스톤 별 기여도</h2>
+          <div className="relative group">
+            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-slate-600 text-slate-300 text-xs cursor-default select-none">?</span>
+            <div className="absolute left-1/2 -translate-x-1/2 top-7 z-10 hidden group-hover:block w-72 bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-xs text-slate-300 shadow-lg leading-relaxed">
+              <p className="font-semibold text-slate-100 mb-1">기여도 집계 기준</p>
+              <p>각 마일스톤 기간 내 테스트케이스의 <span className="text-slate-100">작성자</span> 및 <span className="text-slate-100">테스터</span>로 등록된 건수를 합산한 값입니다.</p>
+              <p className="mt-1.5 text-slate-400">출처: 테스트케이스 관리 시트 O열·P열</p>
+            </div>
+          </div>
+        </div>
         <div className="flex items-center gap-1.5">
           {MILESTONES.map((ms) => (
             <button
