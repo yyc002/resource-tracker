@@ -6,11 +6,21 @@ import type { PersonContribution } from '../data/milestoneContributions'
 const MILESTONES = ['4.9', '4.9.5', '4.10', '4.11'] as const
 type Milestone = typeof MILESTONES[number]
 
-// 인원별 고정 색상 팔레트
+// 인원별 고정 색상 팔레트 (스펙트럼 전체에 고르게 분포)
 const PALETTE = [
-  '#6366f1', '#22c55e', '#f59e0b', '#ef4444', '#8b5cf6',
-  '#06b6d4', '#f97316', '#ec4899', '#14b8a6', '#84cc16',
-  '#0ea5e9', '#a855f7', '#e11d48',
+  '#ef4444', // 빨강
+  '#f97316', // 주황
+  '#eab308', // 노랑
+  '#22c55e', // 초록
+  '#06b6d4', // 시안
+  '#3b82f6', // 파랑
+  '#6366f1', // 인디고
+  '#d946ef', // 퓨시아
+  '#ec4899', // 핑크
+  '#84cc16', // 라임
+  '#14b8a6', // 틸
+  '#f43f5e', // 로즈
+  '#f59e0b', // 앰버
 ]
 
 function toPercent(value: number, total: number): string {
