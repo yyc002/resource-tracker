@@ -19,7 +19,7 @@ const RAW: PersonRaw[] = [
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'],
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', 'BAT 진행'],
     ['D2D 필드 테스트', '', ''], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', '잔여 이슈 정리'], ['4.11', 'Rider', 'TC 현행화'], ['휴무', '', ''],
-    ['4.11', 'Rider', 'TC 현행화'], ['', '', ''],
+    ['4.11', 'Rider', 'TC 현행화'], ['4.11', 'Rider', 'TC 현행화'],
   ]},
   { name: '이형찬', entries: [
     ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'],
@@ -27,7 +27,7 @@ const RAW: PersonRaw[] = [
     ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['휴무', '', ''],
     ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'BAT 진행'], ['4.11', 'OP Tool', 'BAT 진행'],
     ['4.11', 'OP Tool', 'BAT 진행'], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', '잔여 이슈 정리'], ['4.11', 'OP Tool', 'TC 현행화'], ['4.11', 'OP Tool', 'TC 현행화'],
-    ['4.11', 'OP Tool', 'TC 현행화'], ['', '', ''],
+    ['4.11', 'OP Tool', 'TC 현행화'], ['4.11', 'OP Tool', 'TC 현행화'],
   ]},
   { name: '모건', entries: [
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'],
@@ -35,7 +35,7 @@ const RAW: PersonRaw[] = [
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'],
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', 'BAT 진행'],
     ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', '잔여 이슈 정리'], ['4.11', 'Rider', 'TC 현행화'], ['4.11', 'Rider', 'TC 현행화'],
-    ['휴무', '', ''], ['', '', ''],
+    ['휴무', '', ''], ['4.11', 'Rider', 'TC 현행화'],
   ]},
   { name: '박건욱', entries: [
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'],
@@ -43,7 +43,7 @@ const RAW: PersonRaw[] = [
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'],
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', 'BAT 진행'],
     ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', '잔여 이슈 정리'], ['4.11', 'Rider', 'TC 현행화'], ['4.11', 'Rider', 'TC 현행화'],
-    ['4.11', 'Rider', 'TC 현행화'], ['', '', ''],
+    ['4.11', 'Rider', 'TC 현행화'], ['4.11', 'Rider', 'TC 현행화'],
   ]},
   { name: '권오성', entries: [
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'],
@@ -51,7 +51,7 @@ const RAW: PersonRaw[] = [
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'],
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', 'BAT 진행'],
     ['휴무', '', ''], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', '잔여 이슈 정리'], ['4.11', 'Rider', 'TC 현행화'], ['4.11', 'Rider', 'TC 현행화'],
-    ['4.11', 'Rider', 'TC 현행화'], ['', '', ''],
+    ['4.11', 'Rider', 'TC 현행화'], ['4.11', 'Rider', 'TC 현행화'],
   ]},
   { name: '우영제', entries: [
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'],
@@ -59,7 +59,7 @@ const RAW: PersonRaw[] = [
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'],
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'BAT 진행'], ['휴무', '', ''],
     ['지쿠 필드 테스트', '', ''], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', '잔여 이슈 정리'], ['4.11', 'Rider', 'TC 현행화'], ['4.11', 'Rider', 'TC 현행화'],
-    ['4.11', 'Rider', 'TC 현행화'], ['', '', ''],
+    ['4.11', 'Rider', 'TC 현행화'], ['4.11', 'Rider', 'TC 현행화'],
   ]},
   { name: '성명철', entries: [
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'],
@@ -67,7 +67,7 @@ const RAW: PersonRaw[] = [
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'],
     ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'TC 진행'], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', 'BAT 진행'],
     ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', '잔여 이슈 정리'], ['4.11', 'Driver/Vehicle', 'TC 현행화'], ['4.11', 'Driver/Vehicle', 'TC 현행화'],
-    ['4.11', 'Driver/Vehicle', 'TC 현행화'], ['', '', ''],
+    ['4.11', 'Driver/Vehicle', 'TC 현행화'], ['4.11', 'Driver/Vehicle', 'TC 현행화'],
   ]},
   { name: '조정호', entries: [
     ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'],
@@ -75,7 +75,7 @@ const RAW: PersonRaw[] = [
     ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'],
     ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'BAT 진행'], ['4.11', 'OP Tool', 'BAT 진행'],
     ['4.11', 'OP Tool', 'BAT 진행'], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', '잔여 이슈 정리'], ['4.11', 'OP Tool', 'TC 현행화'], ['4.11', 'OP Tool', 'TC 현행화'],
-    ['4.11', 'OP Tool', 'TC 현행화'], ['', '', ''],
+    ['4.11', 'OP Tool', 'TC 현행화'], ['4.11', 'OP Tool', 'TC 현행화'],
   ]},
   { name: '손윤수', entries: [
     ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'],
@@ -83,7 +83,7 @@ const RAW: PersonRaw[] = [
     ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'],
     ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'TC 진행'], ['4.11', 'OP Tool', 'BAT 진행'], ['휴무', '', ''],
     ['4.11', 'OP Tool', 'BAT 진행'], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', '잔여 이슈 정리'], ['4.11', 'OP Tool', 'TC 현행화'], ['4.11', 'OP Tool', 'TC 현행화'],
-    ['4.11', 'OP Tool', 'TC 현행화'], ['', '', ''],
+    ['4.11', 'OP Tool', 'TC 현행화'], ['4.11', 'OP Tool', 'TC 현행화'],
   ]},
   { name: '이경근', entries: [
     ['4.11', 'Taxi', 'TC 진행'], ['4.11', 'Taxi', 'TC 진행'],
@@ -91,7 +91,7 @@ const RAW: PersonRaw[] = [
     ['4.11', 'Taxi', 'TC 진행'], ['4.11', 'Taxi', 'TC 진행'], ['4.11', 'Taxi', 'TC 진행'], ['4.11', 'Taxi', 'TC 진행'], ['4.11', 'Taxi', 'TC 진행'],
     ['휴무', '', ''], ['휴무', '', ''], ['휴무', '', ''], ['4.11', 'Taxi', 'BAT 진행'], ['4.11', 'Taxi', 'BAT 진행'],
     ['4.11', 'Taxi', 'BAT 진행'], ['4.11', 'Taxi', 'BAT 진행'], ['4.11', 'Rider', '잔여 이슈 정리'], ['4.11', 'Rider', 'TC 현행화'], ['4.11', 'Rider', 'TC 현행화'],
-    ['4.11', 'Rider', 'TC 현행화'], ['', '', ''],
+    ['4.11', 'Rider', 'TC 현행화'], ['4.11', 'Rider', 'TC 현행화'],
   ]},
   { name: '이윤석', entries: [
     ['4.11', 'Kiosk', 'TC 진행'], ['4.11', 'Kiosk', 'TC 진행'],
@@ -99,7 +99,7 @@ const RAW: PersonRaw[] = [
     ['4.11', 'Kiosk', 'TC 진행'], ['4.11', 'Kiosk', 'TC 진행'], ['4.11', 'Kiosk', 'TC 진행'], ['4.11', 'Kiosk', 'TC 진행'], ['4.11', 'Kiosk', 'TC 진행'],
     ['4.11', 'Kiosk', 'TC 진행'], ['4.11', 'Kiosk', 'TC 진행'], ['4.11', 'Driver/Vehicle', 'TC 진행'], ['4.11', 'Kiosk', 'BAT 진행'], ['4.11', 'Kiosk', 'BAT 진행'],
     ['지쿠 필드 테스트', '', ''], ['4.11', 'Taxi', 'BAT 진행'], ['지쿠 필드 테스트', '', ''], ['4.11', 'Taxi', 'BAT 진행'], ['4.11', 'Taxi', 'BAT 진행'],
-    ['4.11', 'Taxi', 'BAT 진행'], ['', '', ''],
+    ['4.11', 'Taxi', 'BAT 진행'], ['4.11', 'Taxi', 'BAT 진행'],
   ]},
   { name: '심명섭', entries: [
     ['4.11', 'Driver/Vehicle', 'TC 진행'], ['4.11', 'Driver/Vehicle', 'TC 진행'],
@@ -107,7 +107,7 @@ const RAW: PersonRaw[] = [
     ['4.11', 'Driver/Vehicle', 'TC 진행'], ['4.11', 'Driver/Vehicle', 'TC 진행'], ['4.11', 'Driver/Vehicle', 'TC 진행'], ['4.11', 'Driver/Vehicle', 'TC 진행'], ['4.11', 'Driver/Vehicle', 'TC 진행'],
     ['휴무', '', ''], ['4.11', 'Driver/Vehicle', 'TC 진행'], ['4.11', 'Driver/Vehicle', 'TC 진행'], ['4.11', 'Driver/Vehicle', 'BAT 진행'], ['4.11', 'Driver/Vehicle', 'BAT 진행'],
     ['4.11', 'Driver/Vehicle', 'BAT 진행'], ['4.11', 'Rider', 'BAT 진행'], ['4.11', 'Rider', '잔여 이슈 정리'], ['4.11', 'Driver/Vehicle', 'TC 현행화'], ['4.11', 'Driver/Vehicle', 'TC 현행화'],
-    ['4.11', 'Driver/Vehicle', 'TC 현행화'], ['', '', ''],
+    ['4.11', 'Driver/Vehicle', 'TC 현행화'], ['4.11', 'Driver/Vehicle', 'TC 현행화'],
   ]},
 ]
 
