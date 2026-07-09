@@ -4,9 +4,11 @@ import type { AggregatedDay } from '../types/work'
 
 const DAY_LABELS = ['월', '화', '수', '목', '금']
 
-// 데이터 있는 첫 번째 달로 초기화
-const INITIAL_YEAR = WORK_MONTHS[WORK_MONTHS.length - 1].year
-const INITIAL_MONTH = WORK_MONTHS[WORK_MONTHS.length - 1].month
+// 현재 달이 데이터에 있으면 현재 달, 없으면 마지막 달
+const now = new Date()
+const matched = WORK_MONTHS.find(m => m.year === now.getFullYear() && m.month === now.getMonth() + 1)
+const INITIAL_YEAR = matched ? matched.year : WORK_MONTHS[WORK_MONTHS.length - 1].year
+const INITIAL_MONTH = matched ? matched.month : WORK_MONTHS[WORK_MONTHS.length - 1].month
 
 function toDateStr(year: number, month: number, day: number): string {
   return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`
