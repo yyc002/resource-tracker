@@ -7,6 +7,12 @@
       "exportName": "JUN_AGGREGATED",
       "datesVar": "JUN_DATES",
       "note": "6/3 공직선거일(지방선거) 공휴일 제외"
+    },
+    "2026-07": {
+      "gid": "1469143255",
+      "dataFile": "src/data/jul2026.ts",
+      "exportName": "JUL_AGGREGATED",
+      "datesVar": "JUL_DATES"
     }
   }
 }
