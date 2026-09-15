@@ -68,6 +68,7 @@ export const milestoneContributions: MilestoneContributions = {
       ],
     },
   ],
+  '4.12': emptyProducts(),
   '4.11': [
     {
       product: 'Rider',  // gid=304843208

@@ -10,17 +10,19 @@ export const orgData: OrgData = {
       tl: { name: '조정호', role: 'TL', experience: '5년' },
       tes: [
         { name: '손윤수', role: 'TE', experience: '3년' },
+        { name: '이형찬', role: 'TE', experience: '신입' },
       ],
     },
     {
       serviceName: 'Rider',
-      tl: { name: '이성형', role: 'TL', experience: '5년' },
+      tl: null,  // 이성형 TL 26년 7월 퇴사
       tes: [
         { name: '박건욱', role: 'TE', experience: '1년' },
-        { name: '이형찬', role: 'TE', experience: '신입' },
         { name: '모건',   role: 'TE', experience: '신입' },
         { name: '권오성', role: 'TE', experience: '신입' },
         { name: '우영제', role: 'TE', experience: '1년' },
+        { name: '성명철', role: 'TE', experience: '신입' },
+        { name: '김연호', role: 'TE', experience: '4년' },
       ],
     },
     {

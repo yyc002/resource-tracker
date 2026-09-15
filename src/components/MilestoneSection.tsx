@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
 import { milestoneContributions } from '../data/milestoneContributions'
 import type { PersonContribution } from '../data/milestoneContributions'
 
-const MILESTONES = ['4.9', '4.9.5', '4.10', '4.11'] as const
+const MILESTONES = ['4.9', '4.9.5', '4.10', '4.11', '4.12'] as const
 type Milestone = typeof MILESTONES[number]
 
 // 인원별 고정 색상 팔레트 (스펙트럼 전체에 고르게 분포)
@@ -100,7 +100,7 @@ function ProductChart({
 
 // ── 메인 컴포넌트 ─────────────────────────────────────
 export default function MilestoneSection() {
-  const [selected, setSelected] = useState<Milestone>('4.11')
+  const [selected, setSelected] = useState<Milestone>('4.12')
   const products = milestoneContributions[selected]
 
   // 현재 마일스톤에 등장하는 모든 인원 → 일관된 색상 매핑
