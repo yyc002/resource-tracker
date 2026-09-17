@@ -68,7 +68,47 @@ export const milestoneContributions: MilestoneContributions = {
       ],
     },
   ],
-  '4.12': emptyProducts(),
+  '4.12': [
+    {
+      product: 'Rider',
+      people: [
+        { name: '김연호', value: 3297 },
+        { name: '성명철', value: 1679 },
+        { name: '모건',   value: 1390 },
+        { name: '권오성', value: 1140 },
+        { name: '박건욱', value: 1084 },
+        { name: '이윤석', value:  962 },
+        { name: '심명섭', value:  357 },
+        { name: '이경근', value:  292 },
+        { name: '손윤수', value:  263 },
+        { name: '우영제', value:  220 },
+        { name: '이형찬', value:  214 },
+      ],
+    },
+    {
+      product: 'OP Tool',
+      people: [
+        { name: '손윤수', value: 774 },
+        { name: '이형찬', value: 764 },
+        { name: '우영제', value: 622 },
+        { name: '조정호', value: 446 },
+      ],
+    },
+    {
+      product: 'Kiosk',
+      people: [
+        { name: '심명섭', value: 9 },
+        { name: '우영제', value: 8 },
+      ],
+    },
+    {
+      product: 'Driver/Vehicle',
+      people: [
+        { name: '심명섭', value: 853 },
+        { name: '이경근', value: 365 },
+      ],
+    },
+  ],
   '4.11': [
     {
       product: 'Rider',  // gid=304843208
