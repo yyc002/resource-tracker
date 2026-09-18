@@ -109,6 +109,44 @@ export const milestoneContributions: MilestoneContributions = {
       ],
     },
   ],
+  '4.13': [
+    {
+      product: 'Rider',
+      people: [
+        { name: '김연호', value: 316 },
+        { name: '박건욱', value: 202 },
+        { name: '모건',   value: 190 },
+        { name: '성명철', value: 176 },
+        { name: '권오성', value: 138 },
+        { name: '이경근', value: 134 },
+      ],
+    },
+    {
+      product: 'OP Tool',
+      people: [
+        { name: '우영제', value: 324 },
+        { name: '이형찬', value: 289 },
+        { name: '손윤수', value: 176 },
+        { name: '김연호', value: 131 },
+        { name: '심명섭', value: 123 },
+        { name: '이경근', value:  52 },
+        { name: '이윤석', value:  47 },
+        { name: '조정호', value:  15 },
+        { name: '성명철', value:   9 },
+      ],
+    },
+    {
+      product: 'Kiosk',
+      people: [],
+    },
+    {
+      product: 'Driver/Vehicle',
+      people: [
+        { name: '심명섭', value: 177 },
+        { name: '이윤석', value: 117 },
+      ],
+    },
+  ],
   '4.11': [
     {
       product: 'Rider',  // gid=304843208
