@@ -157,7 +157,7 @@ export default function MilestoneSection() {
 
       <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
         {/* 제품별 차트 */}
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 mb-8">
+        <div className="flex flex-wrap justify-center gap-8 mb-8">
           {products.filter(({ people }) => people.length > 0).map(({ product, people }) => (
             <ProductChart
               key={product}
