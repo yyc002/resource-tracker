@@ -4,9 +4,12 @@ import { milestoneContributions } from '../data/milestoneContributions'
 import type { PersonContribution } from '../data/milestoneContributions'
 
 // 데이터가 있는 마일스톤만 표시
-const MILESTONES = Object.keys(milestoneContributions).filter(ms =>
-  milestoneContributions[ms].some(p => p.people.length > 0)
-)
+const MILESTONES = Object.keys(milestoneContributions)
+  .filter(ms => milestoneContributions[ms].some(p => p.people.length > 0))
+  .sort((a, b) => {
+    const toNum = (s: string) => s.split('.').map(Number).reduce((acc, n, i) => acc + n / 100 ** i, 0)
+    return toNum(a) - toNum(b)
+  })
 type Milestone = string
 
 // 인원별 고정 색상 팔레트 (스펙트럼 전체에 고르게 분포)
