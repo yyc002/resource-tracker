@@ -3,8 +3,11 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
 import { milestoneContributions } from '../data/milestoneContributions'
 import type { PersonContribution } from '../data/milestoneContributions'
 
-const MILESTONES = ['4.9', '4.9.5', '4.10', '4.11', '4.12', '4.13'] as const
-type Milestone = typeof MILESTONES[number]
+// 데이터가 있는 마일스톤만 표시
+const MILESTONES = Object.keys(milestoneContributions).filter(ms =>
+  milestoneContributions[ms].some(p => p.people.length > 0)
+)
+type Milestone = string
 
 // 인원별 고정 색상 팔레트 (스펙트럼 전체에 고르게 분포)
 const PALETTE = [
@@ -100,7 +103,7 @@ function ProductChart({
 
 // ── 메인 컴포넌트 ─────────────────────────────────────
 export default function MilestoneSection() {
-  const [selected, setSelected] = useState<Milestone>('4.13')
+  const [selected, setSelected] = useState<Milestone>(MILESTONES[MILESTONES.length - 1])
   const products = milestoneContributions[selected]
 
   // 현재 마일스톤에 등장하는 모든 인원 → 일관된 색상 매핑
@@ -138,21 +141,15 @@ export default function MilestoneSection() {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-1.5">
+        <select
+          value={selected}
+          onChange={e => setSelected(e.target.value)}
+          className="bg-slate-700 text-slate-300 text-sm rounded px-3 py-1.5 border border-slate-600 focus:outline-none focus:border-indigo-500 cursor-pointer"
+        >
           {MILESTONES.map((ms) => (
-            <button
-              key={ms}
-              onClick={() => setSelected(ms)}
-              className={`px-3 py-1 rounded text-sm transition-colors ${
-                selected === ms
-                  ? 'bg-indigo-600 text-white'
-                  : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
-              }`}
-            >
-              {ms}
-            </button>
+            <option key={ms} value={ms}>{ms}</option>
           ))}
-        </div>
+        </select>
       </div>
 
       <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
