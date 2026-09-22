@@ -7,8 +7,13 @@ import type { PersonContribution } from '../data/milestoneContributions'
 const MILESTONES = Object.keys(milestoneContributions)
   .filter(ms => milestoneContributions[ms].some(p => p.people.length > 0))
   .sort((a, b) => {
-    const toNum = (s: string) => s.split('.').map(Number).reduce((acc, n, i) => acc + n / 100 ** i, 0)
-    return toNum(a) - toNum(b)
+    const p = (s: string) => s.split('.').map(Number)
+    const [pa, pb] = [p(a), p(b)]
+    for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+      const diff = (pa[i] ?? 0) - (pb[i] ?? 0)
+      if (diff !== 0) return diff
+    }
+    return 0
   })
 type Milestone = string
 
